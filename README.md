@@ -77,7 +77,9 @@ ChatGUI/<br>
  ├── README.md<br>
  └── .gitignore<br>
 
-🔒 Proper Closing of Sockets
+---
+
+## 🔒 Proper Closing of Sockets
 
 Both sides close:
 
@@ -91,7 +93,9 @@ DataOutputStream
 
 When "bye" arrives.
 
-🎨 Possible Future Enhancements
+---
+
+### 🎨 Possible Future Enhancements
 
 Add timestamps
 
@@ -105,6 +109,8 @@ Use Colors in GUI (client messages = blue, server = green)
 
 Add emojis support
 
-🙋 Author
+---
+
+### 🙋 Author
 
 Mangesh Bedre.
