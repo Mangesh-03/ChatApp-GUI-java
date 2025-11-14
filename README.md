@@ -79,7 +79,7 @@ ChatGUI/<br>
 
 ---
 
-## 🔒 Proper Closing of Sockets
+# 🔒 Proper Closing of Sockets
 
 Both sides close:
 
@@ -95,7 +95,7 @@ When "bye" arrives.
 
 ---
 
-### 🎨 Possible Future Enhancements
+# 🎨 Possible Future Enhancements
 
 Add timestamps
 
@@ -111,6 +111,6 @@ Add emojis support
 
 ---
 
-### 🙋 Author
+#🙋 Author
 
 Mangesh Bedre.
