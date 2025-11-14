@@ -56,26 +56,26 @@ Both applications include a clean GUI, safe socket handling, and proper shutdown
 
 Before Compile : 
 
-ChatGUI/
- ├── ChatApplication.java   (imports above two packages)
- ├── ChatServer.java
- ├── ChatClient.java
- ├── README.md
- └── .gitignore
+ChatGUI/<br>
+ ├── ChatApplication.java   (imports above two packages)<br>
+ ├── ChatServer.java<br>
+ ├── ChatClient.java<br>
+ ├── README.md<br>
+ └── .gitignore<br>
 
 After Compile **ChatServer.java** & **ChatClient.java** : 
 
-ChatGUI/
- ├── utilx/
- │    ├── ServerGUI/
- │    │     └── ChatServer.class   (package utilx.ServerGUI)
- │    └── ClientGUI/
- │          └── ChatClient.class   (package utilx.ClientGUI)
- ├── ChatApplication.java   (imports above two packages)
- ├── ChatServer.java
- ├── ChatClient.java
- ├── README.md
- └── .gitignore
+ChatGUI/<br>
+ ├── utilx/<br>
+ │    ├── ServerGUI/<br>
+ │    │     └── ChatServer.class   (package utilx.ServerGUI)<br>
+ │    └── ClientGUI/<br>
+ │          └── ChatClient.class   (package utilx.ClientGUI)<br>
+ ├── ChatApplication.java   (imports above two packages)<br>
+ ├── ChatServer.java<br>
+ ├── ChatClient.java<br>
+ ├── README.md<br>
+ └── .gitignore<br>
 
 🔒 Proper Closing of Sockets
 
