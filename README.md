@@ -19,6 +19,68 @@ Both applications include a clean GUI, safe socket handling, and proper shutdown
 - ✔ Lightweight & easy to understand structure
 
 ---
+     +---------------------------------------------------+
+     |                ChatApplication                    |
+     +---------------------------------------------------+
+     |                                                   |
+     +---------------------------------------------------+
+     | + main(String[] args) : void                      |
+     +---------------------------------------------------+
+                  | creates
+                  |-----------------------------------|
+                  v                                   v
+     +-------------------------------+   +--------------------------------+
+     |          ChatServer           |   |          ChatClient            |
+     +-------------------------------+   +--------------------------------+
+     | - fobj : JFrame               |   | - fobj : JFrame                |
+     | - sendbtn : JButton           |   | - sendbtn : JButton            |
+     | - text : JTextField           |   | - text : JTextField            |
+     | - youLabel : JLabel           |   | - youLabel : JLabel            |
+     | - chatArea : JTextArea        |   | - chatArea : JTextArea         |
+     |                               |   |                                |
+     | - ssobj : ServerSocket        |   | - sobj : Socket                |
+     | - sobj : Socket               |   | - dis : DataInputStream        |
+     | - dis : DataInputStream       |   | - dos : DataOutputStream       |
+     | - dos : DataOutputStream      |   |                                |
+     +-------------------------------+   +--------------------------------+
+     | + ChatServer()                |   | + ChatClient()                 |
+     | + actionPerformed(ActionEvent)|   | + actionPerformed(ActionEvent)|
+     | - runServerTask() : void      |   | - runClientTask() : void       |
+     +-------------------------------+   +--------------------------------+
+               ^ implements                         ^ implements
+               |                                    |
+        ActionListener                        ActionListener
+
+---
+## Work Flowchart
+      Start Server
+           |
+           v
+      Create ServerSocket
+           |
+           v
+      Wait for Client (accept)
+           |
+           v
+      Client Connected
+           |
+           v
+      Create Data Streams
+           |
+           v
+      Read Message from Client
+           |
+           v
+      Is message "bye"?
+         /     \
+       No       Yes
+       |         |
+       v         v
+      Display   Close Streams
+      Message   Close Socket
+       |         |
+       v         v
+      Repeat   Stop Server
 
 ---
 
@@ -78,6 +140,38 @@ ChatGUI/<br>
  └── .gitignore<br>
 
 ---
+
+## 📝 Logging
+
+### Log File Format
+
+- **Naming Convention**: `LogFileYYYY-MM-DD_HH-mm-ss.txt`
+- **Location**: Project root directory
+- **Encoding**: UTF-8
+- **Format**: Plain text with timestamps
+
+### Log Entry Structure
+
+```
+Client says: [message content]
+Server says: [message content]
+```
+
+### Sample Log File
+
+```
+Client says: hello
+Server says: what are you doing
+Client says: nothing
+
+```
+
+### Log Management
+
+- **Automatic Creation**: Logs created on server startup
+- **Real-time Writing**: Messages written immediately
+- **File Rotation**: New log file per server session
+- **Cleanup**: Manual cleanup required
 
 # 🔒 Proper Closing of Sockets
 
