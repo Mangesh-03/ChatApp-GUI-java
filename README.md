@@ -1,4 +1,4 @@
-# 💬Chat  
+# 💬Chat Messenger
 
 A simple and interactive **Client–Server Chat Application** built using **Java Swing**, **TCP Sockets**, and **Multithreading**.  
 This project demonstrates real-time messaging between a Server and a Client using Java's `DataInputStream` and `DataOutputStream`.
@@ -84,11 +84,8 @@ ChatGUI/<br>
 Both sides close:
 
 Socket
-
 ServerSocket
-
 DataInputStream
-
 DataOutputStream
 
 When "bye" arrives.
@@ -98,13 +95,9 @@ When "bye" arrives.
 # 🎨 Possible Future Enhancements
 
 Add timestamps
-
 Display usernames
-
 Multiple clients (multi-threaded server)
-
 Save chat history
-
 Use Colors in GUI (client messages = blue, server = green)
 
 Add emojis support
