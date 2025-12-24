@@ -83,10 +83,10 @@ ChatGUI/<br>
 
 Both sides close:
 
-Socket
-ServerSocket
-DataInputStream
-DataOutputStream
+Socket<br>
+ServerSocket<br>
+DataInputStream<br>
+DataOutputStream<br>
 
 When "bye" arrives.
 
@@ -94,11 +94,11 @@ When "bye" arrives.
 
 # 🎨 Possible Future Enhancements
 
-Add timestamps
-Display usernames
-Multiple clients (multi-threaded server)
-Save chat history
-Use Colors in GUI (client messages = blue, server = green)
+Add timestamps<br>
+Display usernames<br>
+Multiple clients (multi-threaded server)<br>
+Save chat history<br>
+Use Colors in GUI (client messages = blue, server = green)<br>
 
 Add emojis support
 
