@@ -18,10 +18,9 @@ Both applications include a clean GUI, safe socket handling, and proper shutdown
 - ✔ Graceful shutdown behavior
 - ✔ Lightweight & easy to understand structure
 
+
 ---
-     # UML Daigram
-
-
+## UML Daigram
                +---------------------------------------------------+
                |                ChatApplication                    |
                +---------------------------------------------------+
