@@ -19,39 +19,40 @@ Both applications include a clean GUI, safe socket handling, and proper shutdown
 - ✔ Lightweight & easy to understand structure
 
 ---
+     # UML Daigram
 
- **UML Diagram**
-     +---------------------------------------------------+
-     |                ChatApplication                    |
-     +---------------------------------------------------+
-     |                                                   |
-     +---------------------------------------------------+
-     | + main(String[] args) : void                      |
-     +---------------------------------------------------+
-                  | creates
-                  |-----------------------------------|
-                  v                                   v
-     +-------------------------------+   +--------------------------------+
-     |          ChatServer           |   |          ChatClient            |
-     +-------------------------------+   +--------------------------------+
-     | - fobj : JFrame               |   | - fobj : JFrame                |
-     | - sendbtn : JButton           |   | - sendbtn : JButton            |
-     | - text : JTextField           |   | - text : JTextField            |
-     | - youLabel : JLabel           |   | - youLabel : JLabel            |
-     | - chatArea : JTextArea        |   | - chatArea : JTextArea         |
-     |                               |   |                                |
-     | - ssobj : ServerSocket        |   | - sobj : Socket                |
-     | - sobj : Socket               |   | - dis : DataInputStream        |
-     | - dis : DataInputStream       |   | - dos : DataOutputStream       |
-     | - dos : DataOutputStream      |   |                                |
-     +-------------------------------+   +--------------------------------+
-     | + ChatServer()                |   | + ChatClient()                 |
-     | + actionPerformed(ActionEvent)|   | + actionPerformed(ActionEvent)|
-     | - runServerTask() : void      |   | - runClientTask() : void       |
-     +-------------------------------+   +--------------------------------+
-               ^ implements                         ^ implements
-               |                                    |
-        ActionListener                        ActionListener
+
+               +---------------------------------------------------+
+               |                ChatApplication                    |
+               +---------------------------------------------------+
+               |                                                   |
+               +---------------------------------------------------+
+               | + main(String[] args) : void                      |
+               +---------------------------------------------------+
+                            | creates
+                            |-----------------------------------|
+                            v                                   v
+               +-------------------------------+   +--------------------------------+
+               |          ChatServer           |   |          ChatClient            |
+               +-------------------------------+   +--------------------------------+
+               | - fobj : JFrame               |   | - fobj : JFrame                |
+               | - sendbtn : JButton           |   | - sendbtn : JButton            |
+               | - text : JTextField           |   | - text : JTextField            |
+               | - youLabel : JLabel           |   | - youLabel : JLabel            |
+               | - chatArea : JTextArea        |   | - chatArea : JTextArea         |
+               |                               |   |                                |
+               | - ssobj : ServerSocket        |   | - sobj : Socket                |
+               | - sobj : Socket               |   | - dis : DataInputStream        |
+               | - dis : DataInputStream       |   | - dos : DataOutputStream       |
+               | - dos : DataOutputStream      |   |                                |
+               +-------------------------------+   +--------------------------------+
+               | + ChatServer()                |   | + ChatClient()                 |
+               | + actionPerformed(ActionEvent)|   | + actionPerformed(ActionEvent)|
+               | - runServerTask() : void      |   | - runClientTask() : void       |
+               +-------------------------------+   +--------------------------------+
+                         ^ implements                         ^ implements
+                         |                                    |
+                  ActionListener                        ActionListener
 
 ---
 ## Work Flowchart
