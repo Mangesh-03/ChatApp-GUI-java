@@ -19,6 +19,8 @@ Both applications include a clean GUI, safe socket handling, and proper shutdown
 - ✔ Lightweight & easy to understand structure
 
 ---
+
+ **UML Diagram**
      +---------------------------------------------------+
      |                ChatApplication                    |
      +---------------------------------------------------+
