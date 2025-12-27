@@ -1,9 +1,12 @@
 # 💬Chat Messenger
 
-A simple and interactive **Client–Server Chat Application** built using **Java Swing**, **TCP Sockets**, and **Multithreading**.  
-This project demonstrates real-time messaging between a Server and a Client using Java's `DataInputStream` and `DataOutputStream`.
+## 📌 Abstract
+This project implements a **Client–Server Chat Messenger** using **Java Swing**, **TCP socket programming**, and **multithreading**.  
+It allows two-way real-time text communication between a server and a client through a graphical user interface.  
+The system ensures safe communication using `DataInputStream` and `DataOutputStream`, maintains a client-side chat log, and supports graceful termination using a predefined `"bye"` protocol.
 
-Both applications include a clean GUI, safe socket handling, and proper shutdown logic when either side sends **"bye"**.
+This project demonstrates core networking concepts, GUI development, file handling, and concurrent programming in Java.
+
 
 ---
 
@@ -15,6 +18,7 @@ Both applications include a clean GUI, safe socket handling, and proper shutdown
 - ✔ Separate background thread for network handling
 - ✔ Clean `"bye"` protocol without duplicate responses
 - ✔ Proper closing of all sockets & streams
+- ✔ Client-side chat logging with timestamps
 - ✔ Graceful shutdown behavior
 - ✔ Lightweight & easy to understand structure
 
@@ -26,7 +30,7 @@ Both applications include a clean GUI, safe socket handling, and proper shutdown
                +---------------------------------------------------+
                |                                                   |
                +---------------------------------------------------+
-               | + main(String[] args) : void                      |
+               |         + main(String[] args) : void              |
                +---------------------------------------------------+
                             | creates
                             |-----------------------------------|
@@ -95,6 +99,7 @@ Both applications include a clean GUI, safe socket handling, and proper shutdown
 4. Displays client messages in JTextArea
 5. Sends messages via Send button
 6. Closes everything when either side sends `"bye"`
+7. Create Log File.
 
 ### 🟩 Client Side
 1. Connects to server using `Socket("localhost", 8080)`
@@ -147,7 +152,7 @@ ChatGUI/<br>
 
 ### Log File Format
 
-- **Naming Convention**: `LogFileYYYY-MM-DD_HH-mm-ss.txt`
+- **Naming Convention**: `LogFiledd-MM-yyyy_HH-mm-ss.txt`
 - **Location**: Project root directory
 - **Encoding**: UTF-8
 - **Format**: Plain text with timestamps
@@ -170,7 +175,7 @@ Client says: nothing
 
 ### Log Management
 
-- **Automatic Creation**: Logs created on server startup
+- **Automatic Creation**: Logs created on server session end
 - **Real-time Writing**: Messages written immediately
 - **File Rotation**: New log file per server session
 - **Cleanup**: Manual cleanup required
@@ -190,10 +195,9 @@ When "bye" arrives.
 
 # 🎨 Possible Future Enhancements
 
-Add timestamps<br>
+Add timestamps in GUI frame<br>
 Display usernames<br>
 Multiple clients (multi-threaded server)<br>
-Save chat history<br>
 Use Colors in GUI (client messages = blue, server = green)<br>
 
 Add emojis support
