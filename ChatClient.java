@@ -2,7 +2,7 @@ package utilx.ClientGUI;
 
 import javax.swing.*;
 import java.awt.event.*;
-import java.net.*;
+import java.net.*; 
 import java.io.*;
 
 public class ChatClient extends JFrame implements ActionListener
@@ -63,9 +63,20 @@ public class ChatClient extends JFrame implements ActionListener
                 dos.writeUTF(msg);
                 text.setText("");
             }
+            catch (SocketException se)
+            {
+                if(se.getMessage().equals("Socket closed"))
+                {
+                    chatArea.append("Connection closed.\n");
+                }
+                else
+                {
+                    chatArea.append("Connection lost unexpectedly.\n");
+                }
+            }
             catch(Exception eobj)
             {
-                chatArea.append("Error : " + eobj.getMessage() + "\n");
+                chatArea.append("error : " + eobj.getMessage() + "\n");
             }
         }
     }
@@ -92,8 +103,7 @@ public class ChatClient extends JFrame implements ActionListener
                 if(str.equals("bye"))
                 {
                     chatArea.append("Server : " + str + "\n");
-                    
-                    chatArea.append("Server disconnected.\n");
+                    chatArea.append("Client : bye.\n");
                     sobj.close();
                     dis.close();
                     dos.close();
@@ -105,7 +115,11 @@ public class ChatClient extends JFrame implements ActionListener
         }
         catch(Exception eobj)
         {
-            chatArea.append("Error : " + eobj.getMessage() + "\n");
+            chatArea.append("Sever : bye\n");
+        }
+        finally
+        {
+            fobj.dispose();
         }
     }
 }

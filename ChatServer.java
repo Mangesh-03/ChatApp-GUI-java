@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.net.*;
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ChatServer extends JFrame implements ActionListener
 {
@@ -46,12 +48,12 @@ public class ChatServer extends JFrame implements ActionListener
         fobj.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fobj.setVisible(true);
 
-        // ✔ Lambda Thread
+        //  Lambda Thread
         Thread th = new Thread(() -> runServerTask());
         th.start();
     }
 
-    // ✔ Send button action
+    //  Send button action
     public void actionPerformed(ActionEvent aobj)
     {
         if(aobj.getSource() == sendbtn)
@@ -66,7 +68,7 @@ public class ChatServer extends JFrame implements ActionListener
             }
             catch(Exception eobj)
             {
-                chatArea.append("Error : " + eobj.getMessage() + "\n");
+                chatArea.append("error : " + eobj.getMessage() + "\n");
             }
         }
     }
@@ -74,7 +76,7 @@ public class ChatServer extends JFrame implements ActionListener
     //  Server listening task in single method
     private void runServerTask()
     {
-        try
+        try 
         {
             ssobj = new ServerSocket(8080);
             chatArea.append("Server started. Waiting for client...\n");
@@ -94,7 +96,8 @@ public class ChatServer extends JFrame implements ActionListener
                 if(str.equals("bye"))
                 {
                     chatArea.append("Client : " + str + "\n");
-                    chatArea.append("Client disconnected.\n");
+                    chatArea.append("Server : bye.\n");
+
                     sobj.close();
                     dis.close();
                     dos.close();
@@ -103,13 +106,51 @@ public class ChatServer extends JFrame implements ActionListener
                 }
 
                 chatArea.append("Client : " + str + "\n");
+                
             }
         }
         catch(Exception eobj)
         {
-            
-            chatArea.append("Error : " + eobj.getMessage() + "\n");
+            chatArea.append("Client : bye\n");
+        }
+        finally
+        {
+            saveChatToFile(); 
+            fobj.dispose();
+        }
+
+    }
+    public void saveChatToFile()
+    {
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        LocalDateTime now = LocalDateTime.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy_HH-mm-ss");
+
+        String TimeStamp = now.format(formatter);
+
+        String FileName = "LogFile" +TimeStamp+ ".txt";
+
+        try
+        {
+            fw = new FileWriter(FileName, true); // append mode
+            bw = new BufferedWriter(fw);
+
+            bw.write("------ Chat Session ------\n");
+            bw.write(chatArea.getText());
+            bw.write("\n--------------------------\n\n");
+
+            bw.flush();
+        }
+        catch(Exception e)
+        {
+            System.out.println("Failed to save chat: " + e.getMessage());
+        }
+        finally
+        {
+            try { if(bw != null) bw.close(); } catch(Exception e){}
+            try { if(fw != null) fw.close(); } catch(Exception e){}
         }
     }
-
 }
