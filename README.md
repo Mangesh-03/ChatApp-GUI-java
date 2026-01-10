@@ -205,4 +205,4 @@ Add emojis support
 
 # 🙋 Author
 
-Mangesh Bedre.
+Mangesh Bedre. 
